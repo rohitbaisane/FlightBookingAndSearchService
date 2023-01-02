@@ -10,4 +10,6 @@ router.get('/city', cityController.getAll);
 router.delete('/city/:id', cityController.destroy);
 router.put('/city/:id', cityController.update);
 router.post('/flights', flightController.create);
+router.get('/flight/:id', flightController.get);
+router.get('/flights', flightController.getAll);
 module.exports = router;
