@@ -29,7 +29,7 @@ module.exports = {
                 type: Sequelize.DATE,
                 allowNull: false
             },
-            deaprtureTime: {
+            departureTime: {
                 type: Sequelize.DATE,
                 allowNull: false
             },
