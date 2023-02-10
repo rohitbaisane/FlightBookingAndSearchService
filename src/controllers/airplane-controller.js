@@ -1,17 +1,18 @@
-const { CityService } = require('../services/index');
-const cityService = new CityService();
+const { AirplaneService } = require('../services/index');
+const airplaneService = new AirplaneService();
 
 
 const create = async (req, res) => {
     try {
-        const cityData = {
-            name: req.body.name
+        const airplaneData = {
+            modelNumber: req.body.modelNumber,
+            capacity: req.body.capacity
         }
-        const city = await cityService.create(cityData);
+        const airplane = await airplaneService.create(airplaneData);
         return res.status(201).json({
-            data: city,
+            data: airplane,
             success: true,
-            message: 'Successfully created a city',
+            message: 'Successfully created a airplane',
             err: {}
         });
     } catch (error) {
@@ -19,7 +20,7 @@ const create = async (req, res) => {
         return res.status(500).json({
             data: {},
             success: false,
-            message: 'Not able to create a city',
+            message: 'Not able to create a airplane',
             err: error
         });
     }
@@ -28,11 +29,11 @@ const create = async (req, res) => {
 // DELETE --> /city/:id 
 const destroy = async (req, res) => {
     try {
-        const response = await cityService.delete(req.params.id);
+        const response = await airplaneService.delete(req.params.id);
         return res.status(200).json({
             data: response,
             success: true,
-            message: 'Successfully deleted a city',
+            message: 'Successfully deleted a airplane',
             err: {}
         });
     } catch (error) {
@@ -40,7 +41,7 @@ const destroy = async (req, res) => {
         return res.status(500).json({
             data: {},
             success: false,
-            message: 'Not able to delete a city',
+            message: 'Not able to delete a airplane',
             err: error
         });
 
@@ -50,11 +51,11 @@ const destroy = async (req, res) => {
 // GET --> /city/:id
 const get = async (req, res) => {
     try {
-        const city = await cityService.get(req.params.id);
+        const airplane = await airplaneService.get(req.params.id);
         return res.status(200).json({
-            data: city,
+            data: airplane,
             success: true,
-            message: 'Successfully fetched a city',
+            message: 'Successfully fetched a airplane',
             err: {}
         });
     } catch (error) {
@@ -62,7 +63,7 @@ const get = async (req, res) => {
         return res.status(500).json({
             data: {},
             success: false,
-            message: 'Not able to fetch a city',
+            message: 'Not able to fetch a airplane',
             err: error
         });
     }
@@ -71,11 +72,11 @@ const get = async (req, res) => {
 // PATCH --> /city/:id
 const update = async (req, res) => {
     try {
-        const updatedCity = await cityService.update(req.params.id, req.body);
+        const response = await airplaneService.update(req.params.id, req.body);
         return res.status(201).json({
-            data: updatedCity,
+            data: response,
             success: true,
-            message: 'Successfully updated a city',
+            message: 'Successfully updated a airplane',
             err: {}
         });
     } catch (error) {
@@ -83,7 +84,7 @@ const update = async (req, res) => {
         return res.status(500).json({
             data: {},
             success: false,
-            message: 'Not able to update a city',
+            message: 'Not able to update a airplane',
             err: error
         });
     }
@@ -91,11 +92,11 @@ const update = async (req, res) => {
 
 const getAll = async (req, res) => {
     try {
-        const cities = await cityService.getAll(req.query);
+        const airplanes = await airplaneService.getAll(req.query);
         return res.status(201).json({
-            data: cities,
+            data: airplanes,
             success: true,
-            message: 'Successfully fetched all cities',
+            message: 'Successfully fetched all airplanes',
             err: {}
         });
     } catch (error) {
@@ -103,7 +104,7 @@ const getAll = async (req, res) => {
         return res.status(500).json({
             data: {},
             success: false,
-            message: 'Not able to fetch cities',
+            message: 'Not able to fetch airplanes',
             err: error
         });
     }
