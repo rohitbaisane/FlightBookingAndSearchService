@@ -8,7 +8,7 @@ class FlightService {
     }
     async createFlight(data) {
         try {
-            const airplane = await this.airplaneRepository.getAirplane(data.airplaneId);
+            const airplane = await this.airplaneRepository.get(data.airplaneId);
             const flight = await this.flightRepository.createFlight({ ...data, totalSeats: airplane.capacity });
             return flight;
         } catch (error) {

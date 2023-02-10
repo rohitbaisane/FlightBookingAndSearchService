@@ -5,8 +5,8 @@ const create = async (req, res) => {
     try {
         const flightData = {
             id: req.body.id,
-            FlightNumber: req.body.FlightNumber,
-            airplanId: req.body.airplanId,
+            flightNumber: req.body.flightNumber,
+            airplaneId: req.body.airplaneId,
             arrivalTime: req.body.arrivalTime,
             departureTime: req.body.departureTime,
             arrivalAirportId: req.body.arrivalAirportId,
